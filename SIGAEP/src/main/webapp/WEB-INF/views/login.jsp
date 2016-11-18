@@ -11,8 +11,8 @@
   </head>
   <body>
     <%@include file="nav_bar_menu.jsp" %>
-    <div class="row">
-    
+    <div class="container">
+    	
     		<div class="row center col s12">
     			<div class="icon-block">
 		            <h2 class="center green-text"><i class="large material-icons">lock</i></h2>

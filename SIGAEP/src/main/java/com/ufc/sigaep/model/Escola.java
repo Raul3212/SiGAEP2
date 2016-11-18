@@ -14,6 +14,9 @@ import javax.persistence.OneToMany;
 @Entity
 public class Escola {
 	
+	public static final int PUBLICA = 1;
+	public static final int PARTICULAR = 2;
+	
 	@Id
 	@Column(nullable=false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +24,9 @@ public class Escola {
 	
 	@Column(nullable=false)
 	private String nome;
+	
+	@Column(nullable=false)
+	private int tipo;
 	
 	@OneToMany(mappedBy = "escola", 
 			cascade = CascadeType.REMOVE,
@@ -38,6 +44,12 @@ public class Escola {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	public int getTipo() {
+		return tipo;
+	}
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
 	}
 	public Collection<Aluno> getAlunos() {
 		return alunos;

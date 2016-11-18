@@ -1,6 +1,6 @@
 <nav class="green">
 	<div class="nav-wrapper container">
-		<a id="logo-container" href="menuGerente" class="brand-logo">SiGAEP</a>
+		<a id="logo-container" href="menuOperador" class="brand-logo">SiGAEP</a>
 	    <ul class="right hide-on-med-and-down">
 	    	<li><a href="logout"><i class="material-icons left">first_page</i>Sair</a></li>
 	    </ul>

@@ -21,7 +21,7 @@
 				
 				<div class="col s12 m3">
 					<div class="icon-block">
-						<a href="gerenciarUsuariosPage" class="green-text">
+						<a href="cadastrarAlunoPage" class="green-text">
 							<h2 class="center green-text">
 								<i class="large material-icons">person_add</i>
 							</h2>
@@ -32,7 +32,7 @@
 
 				<div class="col s12 m3">
 					<div class="icon-block">
-						<a href="#" class="green-text">
+						<a href="cadastrarEscolaPage" class="green-text">
 							<h2 class="center green-text">
 								<i class="large material-icons">school</i>
 							</h2>
