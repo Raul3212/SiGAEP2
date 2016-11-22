@@ -98,6 +98,9 @@
 
 	<%@include file="footer.jsp"%>
 	<%@include file="scripts_include.jsp"%>
+	<script>
+	$(".button-collapse").sideNav();
+	</script>
 </body>
 
 

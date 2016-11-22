@@ -37,20 +37,21 @@
 			          <label for="nome">Nome Completo</label>
 			        </div>
 			   	</div>
+			   	<h5>Notas:</h5>
 			   	<div class="row">
-			       	<div class="input-field col s12">
+			       	<div class="input-field col">
 			          <input id="nome" type="text" class="validate" name="nome">
 			          <label for="media6">Média do 6º ano</label>
 			        </div>
-			   	</div>
-			   	<div class="row">
-			       	<div class="input-field col s12">
+			   	
+			   	
+			       	<div class="input-field col">
 			          <input id="nome" type="text" class="validate" name="nome">
 			          <label for="media7">Média do 7º ano</label>
 			        </div>
-			   	</div>
-			   	<div class="row">
-			       	<div class="input-field col s12">
+			   	
+			   	
+			       	<div class="input-field col">
 			          <input id="nome" type="text" class="validate" name="nome">
 			          <label for="media8">Média do 8º ano</label>
 			        </div>
