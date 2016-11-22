@@ -1,6 +1,6 @@
 <nav class="green">
 	<div class="nav-wrapper container">
-		<a id="logo-container" href="/" class="brand-logo">MUHAHAHAHA</a>
+		<a id="logo-container" href="/" class="brand-logo">SiGAEP</a>
 	    <ul class="right hide-on-med-and-down">
 	    	<li><a href="loginFormulario"><i class="material-icons left">settings</i>Administração</a></li>
 	    </ul>
