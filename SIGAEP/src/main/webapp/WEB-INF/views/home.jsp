@@ -38,27 +38,27 @@
 				<div class="col s12 m3">
 					<div class="icon-block">
 						<h2 class="center green-text">
-							<i class="large material-icons">settings</i>
-						</h2>
-						<h5 class="center">Técnico em Agroindústria</h5>
-						<p class="light">We did most of the heavy lifting for you to
-							provide a default stylings that incorporate our custom
-							components. Additionally, we refined animations and transitions
-							to provide a smoother experience for developers.</p>
-					</div>
-				</div>
-
-				<div class="col s12 m3">
-					<div class="icon-block">
-						<h2 class="center green-text">
 							<i class="large material-icons">store</i>
 						</h2>
-						<h5 class="center">Técnico em Comércio</h5>
+						<h5 class="center">Técnico em Administração</h5>
 						<p class="light">By utilizing elements and principles of
 							Material Design, we were able to create a framework that
 							incorporates components and animations that provide more feedback
 							to users. Additionally, a single underlying responsive system
 							across all platforms allow for a more unified user experience.</p>
+					</div>
+				</div>
+				
+				<div class="col s12 m3">
+					<div class="icon-block">
+						<h2 class="center green-text">
+							<i class="large material-icons">settings</i>
+						</h2>
+						<h5 class="center">Técnico em Agronegócio</h5>
+						<p class="light">We did most of the heavy lifting for you to
+							provide a default stylings that incorporate our custom
+							components. Additionally, we refined animations and transitions
+							to provide a smoother experience for developers.</p>
 					</div>
 				</div>
 
