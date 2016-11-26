@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ufc.sigaep.dao.IUsuarioDAO;
 import com.ufc.sigaep.model.Usuario;
+import com.ufc.sigaep.util.SigaepCripUtil;
 
 @Controller
 public class LoginController {
@@ -27,8 +28,7 @@ public class LoginController {
 		
 		List<Usuario> candidatos = usuarioDao.findByLoginLike(usuario.getLogin());
 		if(!candidatos.isEmpty()){
-			if(candidatos.get(0).getSenha().equals(usuario.getSenha()) 
-					&& candidatos.get(0).getTipo() == usuario.getTipo()){
+			if(logar(candidatos.get(0), usuario)){
 				session.setAttribute("usuario", candidatos.get(0));
 				if(usuario.getTipo() == 1)
 					return "operador/menu";
@@ -38,6 +38,11 @@ public class LoginController {
 		}
 		
 		return "redirect:loginFormulario";
+	}
+	
+	private boolean logar(Usuario candidado, Usuario usuario){
+		String senhaHash = SigaepCripUtil.hashSenha(usuario.getSenha());
+		return candidado.getSenha().equals(senhaHash) && candidado.getTipo() == usuario.getTipo();
 	}
 	
 	@RequestMapping("/logout")

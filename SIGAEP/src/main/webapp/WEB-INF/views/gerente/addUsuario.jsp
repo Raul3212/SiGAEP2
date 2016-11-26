@@ -34,7 +34,11 @@
 					<label for="password">Senha</label>
 				</div>
 			</div>
+			
+			<!-- Inseguro!
 			<input type="hidden" name="tipo" value="1">
+			-->
+			
 			<div class="row center">
 				<div class="input-field col s12">
 					<button class="btn waves-effect waves-light green" name="action"
