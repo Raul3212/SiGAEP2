@@ -1,6 +1,7 @@
 package com.ufc.sigaep.controller;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,15 +41,21 @@ public class AlunoController {
 		return "redirect:menuOperador";
 	}
 	
-	/*@RequestMapping("/gerarClassificacao")
-	public String gerarClassificacaoAdministracao(int curso){
-		List<TuplaClassificacao> alunos = alunoDao.selectClassificacaoPorCurso(curso);
+	@RequestMapping("/gerarClassificacao")
+	public String gerarClassificacaoAdministracao(Long curso){
+		List<TuplaClassificacao> tuplas = new ArrayList<>();
 		
-		for(TuplaClassificacao t : alunos){
+		List<Aluno> alunos = alunoDao.findByCursoIdOrderByMediaFinalDesc(curso);
+		
+		for(Aluno a : alunos){
+			tuplas.add(new TuplaClassificacao(a.getNome(), a.getEscola().getNome(), a.getMediaFinal()));
+		}
+		
+		for(TuplaClassificacao t : tuplas){
 			System.out.println(t);
 		}
 		
-		PdfWriter writer;
+		/*PdfWriter writer;
 		try {
 			writer = new PdfWriter("");
 			PdfDocument pdf = new PdfDocument(writer);
@@ -61,10 +68,10 @@ public class AlunoController {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 		return "";
 		
-	}*/
+	}
 	
 }

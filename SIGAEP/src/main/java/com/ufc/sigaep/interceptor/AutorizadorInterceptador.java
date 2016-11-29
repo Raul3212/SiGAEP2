@@ -15,7 +15,8 @@ public class AutorizadorInterceptador extends HandlerInterceptorAdapter {
 			"logout", ".png", ".gif"};
 	
 	private String[] urls_gerente = {"gerenciarUsuariosPage", "addUsuarioFormulario", "menuGerente", 
-			"addUsuario", "deletarUsuario", "menuClassificacao", "addCursoFormulario", "cadastrarCurso"};
+			"addUsuario", "deletarUsuario", "menuClassificacao", "addCursoFormulario", "cadastrarCurso",
+			"gerarClassificacao"};
 	
 	private String[] urls_operador = {"cadastrarEscolaPage", "menuOperador", "cadastrarAlunoPage", "cadastrarEscola", "cadastrarAluno"};
 		
