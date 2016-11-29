@@ -26,18 +26,21 @@ public class Aluno {
 	@Column(name = "escola_id", updatable = false, insertable = false)
 	private Long escolaId;
 	
+	@Column(nullable = false)
+	private int curso;
+	
 	//Médias para 6, 7 e 8 anos
-	private float ano6Portugues, ano6Artes, ano6EdFisica, ano6Historia, ano6Geografia, ano6Ciencias, ano6Matematica;
-	private float ano7Portugues, ano7Artes, ano7EdFisica, ano7Historia, ano7Geografia, ano7Ciencias, ano7Matematica;
-	private float ano8Portugues, ano8Artes, ano8EdFisica, ano8Historia, ano8Geografia, ano8Ciencias, ano8Matematica;
+	private float ano6Portugues, ano6Artes, ano6EdFisica, ano6Ingles, ano6Historia, ano6Geografia, ano6Ciencias, ano6Matematica;
+	private float ano7Portugues, ano7Artes, ano7EdFisica, ano7Ingles, ano7Historia, ano7Geografia, ano7Ciencias, ano7Matematica;
+	private float ano8Portugues, ano8Artes, ano8EdFisica, ano8Ingles, ano8Historia, ano8Geografia, ano8Ciencias, ano8Matematica;
 	
 	//Médias BIMESTRAIS para 9 ano
-	private float ano9Portugues1, ano9Artes1, ano9EdFisica1, ano9Historia1, ano9Geografia1, ano9Ciencias1, ano9Matematica1;
-	private float ano9Portugues2, ano9Artes2, ano9EdFisica2, ano9Historia2, ano9Geografia2, ano9Ciencias2, ano9Matematica2;
-	private float ano9Portugues3, ano9Artes3, ano9EdFisica3, ano9Historia3, ano9Geografia3, ano9Ciencias3, ano9Matematica3;
+	private float ano9Portugues1, ano9Artes1, ano9EdFisica1, ano9Ingles1, ano9Historia1, ano9Geografia1, ano9Ciencias1, ano9Matematica1;
+	private float ano9Portugues2, ano9Artes2, ano9EdFisica2, ano9Ingles2, ano9Historia2, ano9Geografia2, ano9Ciencias2, ano9Matematica2;
+	private float ano9Portugues3, ano9Artes3, ano9EdFisica3, ano9Ingles3, ano9Historia3, ano9Geografia3, ano9Ciencias3, ano9Matematica3;
 	
 	//Médias para 9 ano
-	private float ano9Portugues, ano9Artes, ano9EdFisica, ano9Historia, ano9Geografia, ano9Ciencias, ano9Matematica;
+	private float ano9Portugues, ano9Artes, ano9EdFisica, ano9Ingles, ano9Historia, ano9Geografia, ano9Ciencias, ano9Matematica;
 	
 	//Médias para cada área
 	private float mediaLinguagens, mediaCienciasHumanas, mediaCienciasNaturais, mediaMatematica;
@@ -128,6 +131,48 @@ public class Aluno {
 	}
 	public float getAno8Ciencias() {
 		return ano8Ciencias;
+	}
+	public float getAno6Ingles() {
+		return ano6Ingles;
+	}
+	public float getAno7Ingles() {
+		return ano7Ingles;
+	}
+	public float getAno8Ingles() {
+		return ano8Ingles;
+	}
+	public float getAno9Ingles1() {
+		return ano9Ingles1;
+	}
+	public float getAno9Ingles2() {
+		return ano9Ingles2;
+	}
+	public float getAno9Ingles3() {
+		return ano9Ingles3;
+	}
+	public float getAno9Ingles() {
+		return ano9Ingles;
+	}
+	public void setAno6Ingles(float ano6Ingles) {
+		this.ano6Ingles = ano6Ingles;
+	}
+	public void setAno7Ingles(float ano7Ingles) {
+		this.ano7Ingles = ano7Ingles;
+	}
+	public void setAno8Ingles(float ano8Ingles) {
+		this.ano8Ingles = ano8Ingles;
+	}
+	public void setAno9Ingles1(float ano9Ingles1) {
+		this.ano9Ingles1 = ano9Ingles1;
+	}
+	public void setAno9Ingles2(float ano9Ingles2) {
+		this.ano9Ingles2 = ano9Ingles2;
+	}
+	public void setAno9Ingles3(float ano9Ingles3) {
+		this.ano9Ingles3 = ano9Ingles3;
+	}
+	public void setAno9Ingles(float ano9Ingles) {
+		this.ano9Ingles = ano9Ingles;
 	}
 	public float getAno8Matematica() {
 		return ano8Matematica;
@@ -392,6 +437,42 @@ public class Aluno {
 	}
 	public void setMediaFinal(float mediaFinal) {
 		this.mediaFinal = mediaFinal;
+	}
+	
+	public static void calcularNotas(Aluno aluno){
+		aluno.setAno9Portugues((aluno.getAno9Portugues1() + aluno.getAno9Portugues2() + aluno.getAno9Portugues3())/3);
+		aluno.setAno9Artes((aluno.getAno9Artes1() + aluno.getAno9Artes2() + aluno.getAno9Artes3())/3);
+		aluno.setAno9EdFisica((aluno.getAno9EdFisica1() + aluno.getAno9EdFisica2() + aluno.getAno9EdFisica3())/3);
+		aluno.setAno9Ingles((aluno.getAno9Ingles1() + aluno.getAno9Ingles2() + aluno.getAno9Ingles3())/3);
+		aluno.setAno9Historia((aluno.getAno9Historia1() + aluno.getAno9Ingles2() + aluno.getAno9Ingles3())/3);
+		aluno.setAno9Geografia((aluno.getAno9Geografia1() + aluno.getAno9Geografia2() + aluno.getAno9Geografia3())/3);
+		aluno.setAno9Ciencias((aluno.getAno9Ciencias1() + aluno.getAno9Ciencias2() + aluno.getAno9Ciencias3())/3);
+		aluno.setAno9Matematica((aluno.getAno9Matematica1() + aluno.getAno9Matematica2() + aluno.getAno9Matematica3())/3);
+		
+		aluno.setMediaLinguagens((2*aluno.getAno6Portugues() + aluno.getAno6Artes() + aluno.getAno6EdFisica() + aluno.getAno6Ingles()
+			+ 2*aluno.getAno7Portugues() + aluno.getAno7Artes() + aluno.getAno7EdFisica() + aluno.getAno7Ingles()
+			+ 2*aluno.getAno8Portugues() + aluno.getAno8Artes() + aluno.getAno8EdFisica() + aluno.getAno8Ingles()
+			+ 2*aluno.getAno9Portugues() + aluno.getAno9Artes() + aluno.getAno9EdFisica() + aluno.getAno9Ingles())/20);
+		
+		aluno.setMediaCienciasHumanas((aluno.getAno6Historia()+ aluno.getAno6Geografia()
+			+ aluno.getAno7Historia() + aluno.getAno7Geografia()
+			+ aluno.getAno8Historia() + aluno.getAno8Geografia()
+			+ aluno.getAno9Historia() + aluno.getAno9Geografia())/8);
+		
+		aluno.setMediaCienciasNaturais((aluno.getAno6Ciencias() 
+				+ aluno.getAno7Ciencias() 
+				+ aluno.getAno8Ciencias() 
+				+ aluno.getAno9Ciencias())/4);
+		
+		aluno.setMediaMatematica((aluno.getAno6Matematica() 
+				+ aluno.getAno7Matematica()
+				+ aluno.getAno8Matematica()
+				+ aluno.getAno9Matematica())/4);
+		
+		aluno.setMediaFinal((aluno.getMediaLinguagens()
+				+ aluno.getMediaCienciasHumanas()
+				+ aluno.getMediaCienciasNaturais()
+				+ 2*aluno.getMediaMatematica())/5);
 	}
 		
 }

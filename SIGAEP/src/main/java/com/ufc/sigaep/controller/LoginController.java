@@ -30,9 +30,9 @@ public class LoginController {
 		if(!candidatos.isEmpty()){
 			if(logar(candidatos.get(0), usuario)){
 				session.setAttribute("usuario", candidatos.get(0));
-				if(usuario.getTipo() == 1)
+				if(usuario.getTipo() == Usuario.OPERADOR)
 					return "operador/menu";
-				else if(usuario.getTipo() == 2)
+				else if(usuario.getTipo() == Usuario.GERENTE)
 					return "gerente/menu";
 			}
 		}

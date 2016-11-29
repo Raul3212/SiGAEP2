@@ -21,12 +21,12 @@
 			</div>
 		</div>
 
-		<form method="post" action="cadastrarEscola" class="col s12">
+		<form method="post" action="cadastrarAluno" class="col s12">
 			<div class="card-panel light-green lighten-5">
 				<h5>Dados Pessoais</h5>
 				<div class="row">
 					<div class="input-field col s12">
-						<select name="tipo">
+						<select name="escolaId">
 							<option value="" disabled selected>Selecione Escola</option>
 							<c:forEach var="escola" items="${escolas}">
 								<option value="${escola.id}">${escola.nome}</option>
@@ -40,11 +40,22 @@
 						<label for="nome">Nome Completo</label>
 					</div>
 				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<select name="curso">
+							<option value="" disabled selected>Selecione Curso</option>
+							<option value="1">Técnico em Agronegócio</option>
+							<option value="2">Técnico em Administração</option>
+							<option value="3">Técnico em Enfermagem</option>
+							<option value="4">Técnico em Informática</option>
+						</select> <label>Escola</label>
+					</div>
+				</div>
 			</div>
 			<div class="card-panel blue lighten-5">
 				<h5>Notas do 6º ano</h5>
 				<div class="row">
-
+									
 					<div class="input-field col">
 						<input id="nome" type="text" class="validate" name="ano6Portugues">
 						<label for="media6">Média em Português</label>

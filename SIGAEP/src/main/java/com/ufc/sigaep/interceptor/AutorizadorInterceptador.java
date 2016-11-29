@@ -17,7 +17,7 @@ public class AutorizadorInterceptador extends HandlerInterceptorAdapter {
 	private String[] urls_gerente = {"gerenciarUsuariosPage", "addUsuarioFormulario", "menuGerente", 
 			"addUsuario", "deletarUsuario"};
 	
-	private String[] urls_operador = {"cadastrarEscolaPage", "menuOperador", "cadastrarAlunoPage"};
+	private String[] urls_operador = {"cadastrarEscolaPage", "menuOperador", "cadastrarAlunoPage", "cadastrarEscola", "cadastrarAluno"};
 		
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
