@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,71 +36,26 @@
 	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 m3">
-					<div class="icon-block">
-						<h2 class="center green-text">
-							<i class="large material-icons">store</i>
-						</h2>
-						<h5 class="center">Técnico em Administração</h5>
-						<p class="light">By utilizing elements and principles of
-							Material Design, we were able to create a framework that
-							incorporates components and animations that provide more feedback
-							to users. Additionally, a single underlying responsive system
-							across all platforms allow for a more unified user experience.</p>
+				<c:forEach var="curso" items="${cursos}">
+					<div class="col s12 m3">
+						<div class="icon-block">
+							<h2 class="center green-text">
+								<i class="large material-icons">${curso.icone}</i>
+							</h2>
+							<h5 class="center">${curso.nome}</h5>
+							<p class="light">${curso.descricao}</p>
+						</div>
 					</div>
-				</div>
-				
-				<div class="col s12 m3">
-					<div class="icon-block">
-						<h2 class="center green-text">
-							<i class="large material-icons">settings</i>
-						</h2>
-						<h5 class="center">Técnico em Agronegócio</h5>
-						<p class="light">We did most of the heavy lifting for you to
-							provide a default stylings that incorporate our custom
-							components. Additionally, we refined animations and transitions
-							to provide a smoother experience for developers.</p>
-					</div>
-				</div>
-
-				<div class="col s12 m3">
-					<div class="icon-block">
-						<h2 class="center green-text">
-							<i class="large material-icons">local_hospital</i>
-						</h2>
-						<h5 class="center">Técnico em Enfermagem</h5>
-						<p class="light">We have provided detailed documentation as
-							well as specific code examples to help new users get started. We
-							are also always open to feedback and can answer any questions a
-							user may have about Materialize.</p>
-					</div>
-				</div>
-
-				<div class="col s12 m3">
-					<div class="icon-block">
-						<h2 class="center green-text">
-							<i class="large material-icons">laptop_mac</i>
-						</h2>
-						<h5 class="center">Técnico em Informática</h5>
-						<p class="light">We did most of the heavy lifting for you to
-							provide a default stylings that incorporate our custom
-							components. Additionally, we refined animations and transitions
-							to provide a smoother experience for developers.</p>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
-
 		</div>
-		<br> <br>
-
-		<div class="section"></div>
 	</div>
 
 
 	<%@include file="footer.jsp"%>
 	<%@include file="scripts_include.jsp"%>
 	<script>
-	$(".button-collapse").sideNav();
+		$(".button-collapse").sideNav();
 	</script>
 </body>
 

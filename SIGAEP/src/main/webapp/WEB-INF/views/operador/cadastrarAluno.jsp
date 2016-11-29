@@ -26,6 +26,12 @@
 				<h5>Dados Pessoais</h5>
 				<div class="row">
 					<div class="input-field col s12">
+						<input id="nome" type="text" class="validate" name="nome">
+						<label for="nome">Nome Completo</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
 						<select name="escolaId">
 							<option value="" disabled selected>Selecione Escola</option>
 							<c:forEach var="escola" items="${escolas}">
@@ -36,19 +42,12 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="nome" type="text" class="validate" name="nome">
-						<label for="nome">Nome Completo</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12">
 						<select name="curso">
 							<option value="" disabled selected>Selecione Curso</option>
-							<option value="1">Técnico em Agronegócio</option>
-							<option value="2">Técnico em Administração</option>
-							<option value="3">Técnico em Enfermagem</option>
-							<option value="4">Técnico em Informática</option>
-						</select> <label>Escola</label>
+							<c:forEach var="curso" items="${cursos}">
+								<option value="${curso.id}">${curso.nome}</option>
+							</c:forEach>
+						</select> <label>Curso Desejado</label>
 					</div>
 				</div>
 			</div>

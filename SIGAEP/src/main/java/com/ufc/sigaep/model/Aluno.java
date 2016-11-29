@@ -26,8 +26,12 @@ public class Aluno {
 	@Column(name = "escola_id", updatable = false, insertable = false)
 	private Long escolaId;
 	
-	@Column(nullable = false)
-	private int curso;
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "curso_id")
+	private Curso curso;
+	
+	@Column(name = "curso_id", updatable = false, insertable = false)
+	private Long cursoId;
 	
 	//Médias para 6, 7 e 8 anos
 	private float ano6Portugues, ano6Artes, ano6EdFisica, ano6Ingles, ano6Historia, ano6Geografia, ano6Ciencias, ano6Matematica;
@@ -438,7 +442,18 @@ public class Aluno {
 	public void setMediaFinal(float mediaFinal) {
 		this.mediaFinal = mediaFinal;
 	}
-	
+	public Curso getCurso() {
+		return curso;
+	}
+	public Long getCursoId() {
+		return cursoId;
+	}
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+	public void setCursoId(Long cursoId) {
+		this.cursoId = cursoId;
+	}
 	public static void calcularNotas(Aluno aluno){
 		aluno.setAno9Portugues((aluno.getAno9Portugues1() + aluno.getAno9Portugues2() + aluno.getAno9Portugues3())/3);
 		aluno.setAno9Artes((aluno.getAno9Artes1() + aluno.getAno9Artes2() + aluno.getAno9Artes3())/3);

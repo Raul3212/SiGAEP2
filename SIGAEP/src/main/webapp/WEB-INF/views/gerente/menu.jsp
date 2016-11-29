@@ -28,18 +28,18 @@
 
 				<div class="col s12 m3">
 					<div class="icon-block">
-						<a href="#" class="green-text">
+						<a href="addCursoFormulario" class="green-text">
 							<h2 class="center green-text">
 								<i class="large material-icons">assignment</i>
 							</h2>
-							<h5 class="center">Ver Cadastros</h5>
+							<h5 class="center">Cadastrar Cursos</h5>
 						</a>
 					</div>
 				</div>
 
 				<div class="col s12 m3">
 					<div class="icon-block">
-						<a href="#" class="green-text">
+						<a href="menuClassificacao" class="green-text">
 							<h2 class="center green-text">
 								<i class="large material-icons">list</i>
 							</h2>
