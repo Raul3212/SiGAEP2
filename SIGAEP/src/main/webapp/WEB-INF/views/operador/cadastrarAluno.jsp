@@ -21,7 +21,7 @@
 			</div>
 		</div>
 
-		<form method="post" action="cadastrarAluno" class="col s12">
+		<form method="post" action="cadastrarAluno" class="col s12" onSubmit="return validar()">
 			<div class="card-panel light-green lighten-5">
 				<h5>Dados Pessoais</h5>
 				<div class="row">
@@ -367,6 +367,30 @@
 			$('select').material_select();
 		});
 	</script>
+	
+	<script type="text/javascript">
+		function validar() {
+		    var entradas = document.getElementsByClassName("validate");
+		    for(var i=0; i< entradas.length; i++)
+            {
+                if(entradas[i].value == null || entradas[i].value == ""){
+                	alert("Preencha todos os campos!");
+                	entradas[i].focus();
+                	return false;
+                }
+                
+                if(entradas[i].name != "nome"){
+                	var nota = parseFloat(entradas[i].value.replace(",", "."));
+                	if(nota < 0 || nota > 10){
+                		alert("As notas devem estar entre 0 e 10!");
+                		entradas[i].focus();
+                		return false;
+                	}
+                }
+            }
+		}
+	</script>
+	
 </body>
 
 
