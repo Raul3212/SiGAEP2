@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ufc.sigaep.dao.ICursoDAO;
 import com.ufc.sigaep.dao.IUsuarioDAO;
@@ -46,8 +48,9 @@ public class PaginasGerenteController {
 	}
 	
 	@RequestMapping("/menuClassificacao")
-	public String menuClassficacao(HttpSession session){
+	public String menuClassficacao(@RequestParam(name = "mensagem", required = false)String mensagem, Model model, HttpSession session){
 		List<Curso> cursos = cursoDao.findAll();
+		model.addAttribute("mensagem", mensagem);
 		session.setAttribute("cursos", cursos);
 		return "gerente/menuClassificacao";
 	}

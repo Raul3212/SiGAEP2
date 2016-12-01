@@ -12,7 +12,7 @@ import com.ufc.sigaep.model.Usuario;
 public class AutorizadorInterceptador extends HandlerInterceptorAdapter {
 
 	private String[] urls_liberadas = {"/", "home", "efetuarLogin", "loginFormulario", 
-			"logout", ".png", ".gif"};
+			"logout", ".png", ".gif", ".pdf", "menuClassificacaoPublico", "menuClassificacao", "verPdfClassificacao"};
 	
 	private String[] urls_gerente = {"gerenciarUsuariosPage", "addUsuarioFormulario", "menuGerente", 
 			"addUsuario", "deletarUsuario", "menuClassificacao", "addCursoFormulario", "cadastrarCurso",

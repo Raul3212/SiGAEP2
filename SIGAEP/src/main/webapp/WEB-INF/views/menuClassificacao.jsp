@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<%@include file="../css_include.jsp"%>
+<%@include file="css_include.jsp"%>
 <title>SIGAEP - Quixadá</title>
 <script type="text/javascript" src="js/app.js"></script>
 </head>
@@ -22,14 +22,16 @@
 		</div>
 	</div>
 
-	<%@include file="nav_bar_gerente.jsp"%>
+	<%@include file="nav_bar_menu.jsp"%>
 	<div class="container">
 		<div class="section">
+			<h5>Selecione o curso:</h5>
 			<div class="row">
 				<c:forEach var="curso" items="${cursos}">
 					<div class="col s12 m3">
 						<div class="icon-block">
-							<a href="gerarClassificacao?curso=${curso.id}" class="green-text">
+							<a href="verPdfClassificacao?curso=${curso.id}"
+								class="green-text">
 								<h2 class="center green-text">
 									<i class="large material-icons">${curso.icone}</i>
 								</h2>
@@ -42,8 +44,8 @@
 		</div>
 	</div>
 
-	<%@include file="../scripts_include.jsp"%>
-
+	<%@include file="scripts_include.jsp"%>
+	
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.modal').modal();
@@ -53,6 +55,7 @@
 		    }
 		});
 	</script>
+	
 </body>
 
 

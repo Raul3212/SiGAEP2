@@ -24,7 +24,7 @@
 					pharetra.</h5>
 			</div>
 			<div class="row center">
-				<a href="#"
+				<a href="menuClassificacaoPublico"
 					class="btn-large waves-effect waves-light yellow darken-2">Ver
 					resultados</a>
 			</div>

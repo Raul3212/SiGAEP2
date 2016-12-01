@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,9 @@ public class AlunoController {
 	@Autowired
 	private ICursoDAO cursoDao;
 	
+	@Autowired
+	private ServletContext servletContext;
+	
 	@RequestMapping("/cadastrarAluno")
 	public String cadastrarAluno(Aluno aluno){
 		Escola escola = escolaDao.findOne(aluno.getEscolaId());
@@ -53,12 +57,13 @@ public class AlunoController {
 	}
 	
 	@RequestMapping("/gerarClassificacao")
-	public void gerarClassificacaoAdministracao(Long curso, HttpServletResponse response){
+	public String gerarClassificacaoAdministracao(Long curso, HttpServletResponse response){
 		List<Aluno> alunos = alunoDao.findByCursoIdOrderByMediaFinalDesc(curso);
 		Curso c = cursoDao.findOne(curso);
 		PdfWriter writer;
 		try {
-			writer = new PdfWriter(response.getOutputStream());
+			String path = servletContext.getRealPath("/") + "/resources/pdf/" + c.getNome().replace(' ', '_') + ".pdf";
+			writer = new PdfWriter(path);
 			PdfDocument pdf = new PdfDocument(writer);
 			Document document = new Document(pdf);
 			
@@ -67,10 +72,39 @@ public class AlunoController {
 			table.addCell("ESCOLA");
 			table.addCell("ALUNO");
 			table.addCell("MÉDIA FINAL");
+			
+			int qtdAlunosEscolaPublica = 0;
+			int qtdAlunosEscolaParticular = 0;
+			
 			for(Aluno a : alunos){
-				table.addCell(a.getEscola().getNome());
-				table.addCell(a.getNome());
-				table.addCell(String.valueOf(a.getMediaFinal()));
+				if(a.getEscola().getTipo() == Escola.PUBLICA){
+					qtdAlunosEscolaPublica++;
+				}else if(a.getEscola().getTipo() == Escola.PARTICULAR){
+					qtdAlunosEscolaParticular++;
+				}
+			}
+			
+			int qtdVagasEscolaPublica = 34;
+			int qtdVagasEscolaParticular = 8;
+			
+			for(Aluno a : alunos){
+				if(a.getEscola().getTipo() == Escola.PARTICULAR && (qtdVagasEscolaParticular > 0 || qtdAlunosEscolaPublica == 0)){
+					table.addCell(a.getEscola().getNome());
+					table.addCell(a.getNome());
+					table.addCell(String.valueOf(a.getMediaFinal()));
+					qtdVagasEscolaParticular--;
+					qtdAlunosEscolaParticular--;
+				}
+				else if(a.getEscola().getTipo() == Escola.PUBLICA && (qtdVagasEscolaPublica > 0 || qtdAlunosEscolaParticular == 0)){
+					table.addCell(a.getEscola().getNome());
+					table.addCell(a.getNome());
+					table.addCell(String.valueOf(a.getMediaFinal()));
+					qtdVagasEscolaParticular--;
+					qtdAlunosEscolaPublica--;
+				}
+				if(qtdVagasEscolaParticular == 0 && qtdVagasEscolaPublica == 0){
+					break;
+				}
 			}
 			
 			Paragraph nomeEscola = new Paragraph("EEEP. MARIA CAVALCANTE COSTA");
@@ -82,17 +116,14 @@ public class AlunoController {
 			titulo.setTextAlignment(TextAlignment.CENTER);
 			titulo.setFontSize(14);
 			document.add(titulo);
-			
 			document.add(table);
-			
 			document.close();
-			response.setContentType("application/pdf");
-			
+			//response.setContentType("application/pdf");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		return "redirect:menuClassificacao?mensagem=Classificacao gerada com sucesso!";
 	}
 	
 }
