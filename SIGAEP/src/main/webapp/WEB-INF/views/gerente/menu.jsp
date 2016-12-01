@@ -50,8 +50,8 @@
 
 				<div class="col s12 m3">
 					<div class="icon-block">
-						<a href="#" class="green-text">
-							<h2 class="center green-text">
+						<a href="#" class="grey-text">
+							<h2 class="center grey-text">
 								<i class="large material-icons">assessment</i>
 							</h2>
 							<h5 class="center">Estatísticas</h5>

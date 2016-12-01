@@ -1,19 +1,23 @@
 <footer class="page-footer yellow darken-2">
+	
+	<!--<div id="fb-root"></div>
+	<script type="text/javascript">(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
 	<div class="container">
 		<div class="row">
-			<div class="col l6 s12">
-				<h5 class="white-text">Company Bio</h5>
-				<p class="grey-text text-lighten-4">We are a team of college
-					students working on this project like it's our full time job. Any
-					amount would help support and continue development on this project
-					and is greatly appreciated.</p>
-
-
-			</div>
 			<div class="col l3 s12">
 				<h5 class="white-text">Siga-nos</h5>
 				<ul>
-					<!-- RAUL: Inserir plugins sociais -->
+					<div class="fb-like"
+						data-href="https://www.facebook.com/escolaprofissional.quixada"
+						data-layout="standard" data-action="like" data-size="small"
+						data-show-faces="true" data-share="true"></div>
 				</ul>
 			</div>
 		</div>
@@ -23,5 +27,5 @@
 			Made by <a class="orange-text text-lighten-4"
 				href="http://materializecss.com">Materialize</a>
 		</div>
-	</div>
+	</div>-->
 </footer>

@@ -17,11 +17,12 @@
 			<h1 class="header center yellow-text text-darken-2">EEEP. Maria
 				Cavalcante Costa</h1>
 			<div class="row center">
-				<h5 class="header col s12 light">Lorem ipsum dolor sit amet,
-					consectetur adipiscing elit. Vivamus porttitor gravida odio, sed
-					porta nisl vulputate non. Etiam mi lectus, tempor sit amet
-					hendrerit ac, malesuada eu lacus. Nam porttitor vehicula lacus in
-					pharetra.</h5>
+				<h5 class="header col s12 light">Desenvolvemos uma educação de qualidade baseada na excelência dos valores: 
+				liderança, diálogo, comprometimento social, consciência ética, responsabilidade e integração. 
+				Uma escola de Ensino Médio Integado comprometida com a formação humana, 
+				científica e técnico-profissionalizante de jovens, reconhecida a nível Municipal, 
+				Estadual e Nacional, pela excelência das ações 
+				executadas com base nos pressupostos da Tecnologia Empesarial Sócio-Educacional.</h5>
 			</div>
 			<div class="row center">
 				<a href="menuClassificacaoPublico"
